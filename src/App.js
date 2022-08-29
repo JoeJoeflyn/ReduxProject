@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Forminfor from "./components/forminfor";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Bookdetail from "./components/Bookdetail";
 function App() {
+  const location = useLocation();
+  const background = location.state && location.state.background;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes location={background || location}>
+        <Route path="/" element={<Forminfor />}>
+          <Route path="forminfor/:bookId" element={<Bookdetail />} />
+        </Route>
+      </Routes>
+      {background && (
+        <Routes>
+          <Route path="forminfor/:bookId" element={<Bookdetail />} />
+        </Routes>
+      )}
+    </>
   );
 }
-
 export default App;
