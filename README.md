@@ -1,3 +1,6 @@
+# ReduxProject.github.io
+Learning Redux, Formik, Tailwind and Chakra UI and so on
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
