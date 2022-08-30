@@ -14,7 +14,7 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ChakraProvider>
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <BrowserRouter basename={window.location.pathname || ""}>
             <App />
           </BrowserRouter>
         </ChakraProvider>
